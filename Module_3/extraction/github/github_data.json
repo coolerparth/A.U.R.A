@@ -1,0 +1,35 @@
+{
+  "profile_info": {
+    "username": "NandiniAggarwal14",
+    "name": "Nandini Aggarwal",
+    "bio": "Hi, Nandini Aggarwal this side!\r\nI am passionate about transforming ideas into practical solutions by developing intelligent systems.",
+    "public_repos": 18,
+    "followers": 2,
+    "profile_url": "https://github.com/NandiniAggarwal14"
+  },
+  "tech_stack": {
+    "languages": {
+      "Jupyter Notebook": 3301903,
+      "C++": 88364,
+      "C": 50826,
+      "HTML": 66503,
+      "JavaScript": 7896,
+      "Python": 10524911,
+      "CSS": 12654,
+      "PowerShell": 25697,
+      "Batchfile": 1369
+    },
+    "languages_ranked": [
+      "Python",
+      "Jupyter Notebook",
+      "C++",
+      "HTML",
+      "C",
+      "PowerShell",
+      "CSS",
+      "JavaScript",
+      "Batchfile"
+    ],
+    "topics_and_tools": []
+  }
+}

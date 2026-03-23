@@ -1,0 +1,36 @@
+{
+  "company": "Amazon",
+  "job_title": "Software Development Engineer I",
+  "location": "Bangalore, India",
+  "employment_type": "Full-time",
+  "experience_required": "0-2 years",
+  "department": "Engineering",
+  "job_description": "Amazon is looking for passionate Software Development Engineers who want to solve large-scale distributed system problems and build customer-centric products used by millions of customers worldwide.",
+  "responsibilities": [
+    "Design and develop scalable backend services and APIs",
+    "Work on distributed systems handling large-scale data",
+    "Collaborate with product managers, designers, and other engineers",
+    "Write clean, efficient, and maintainable code",
+    "Participate in code reviews and system design discussions",
+    "Improve performance, reliability, and security of services"
+  ],
+  "required_qualifications": [
+    "Bachelor’s degree in Computer Science or related field",
+    "Strong programming skills in Java, Python, or C++",
+    "Good understanding of data structures and algorithms",
+    "Knowledge of object-oriented programming and system design",
+    "Familiarity with REST APIs and databases"
+  ],
+  "preferred_qualifications": [
+    "Experience with AWS or other cloud platforms",
+    "Knowledge of microservices architecture",
+    "Experience with distributed systems"
+  ],
+  "skills": [
+    "Data Structures and Algorithms",
+    "Problem Solving",
+    "Backend Development",
+    "System Design",
+    "Cloud Computing"
+  ]
+}

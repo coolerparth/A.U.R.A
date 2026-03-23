@@ -1,0 +1,68 @@
+{
+  "projects": [
+    {
+      "name": "NotesHive",
+      "technologies": ["Python", "Flask", "MySQL", "REST APIs", "Sentence Transformers"],
+      "duration": "Nov 2025 - Dec 2025",
+      "mentor": "Dr. Navin Garg",
+      "description": [
+        "Developed an academic notes management platform for efficient study resource retrieval.",
+        "Integrated keyword-based and AI-based semantic search using Sentence Transformer models.",
+        "Implemented role-based access for teachers and students to upload, search, delete and access study material via REST APIs."
+      ]
+    },
+    {
+      "name": "ReadBuddy: AI Video Analyzer",
+      "technologies": ["FastAPI", "Chrome Extension", "REST APIs", "Google Gemini API", "Hugging Face Models"],
+      "event": "SAARTHI’25 Hackathon",
+      "duration": "Nov 2025",
+      "description": [
+        "Built a Chrome extension to assist visually impaired users in navigating web applications.",
+        "Integrated Gemini API and Hugging Face models like InstructBLIP and Pegasus.",
+        "Implemented hotkeys and TTS for accessibility.",
+        "Summarizes text, images, and video by capturing frames periodically during playback."
+      ]
+    },
+    {
+      "name": "Smart Emergency Assistance System",
+      "technologies": ["Python", "Flask", "Twilio SMS API", "Folium"],
+      "duration": "May 2025",
+      "mentor": "Dr. Prabhdeep Singh",
+      "description": [
+        "Developed a location-based emergency response system for quick help requests.",
+        "Implemented distance calculation algorithms to find the nearest emergency service station.",
+        "Automated SMS alerts sending user latitude and longitude to emergency centers."
+      ]
+    },
+    {
+      "name": "User-Level Firewall Framework",
+      "technologies": ["Python", "Tkinter", "psutil", "Socket Monitoring"],
+      "duration": "Nov 2025 - Dec 2025",
+      "mentor": "Dr. Santosh Kumar",
+      "description": [
+        "Implemented a firewall framework to monitor network traffic.",
+        "Developed modules for process monitoring, rule-based filtering, and connection tracking.",
+        "Built an interactive GUI with rule engine, action simulator, and event logger."
+      ]
+    }
+  ],
+  "skills": {
+    "languages": ["C++", "Python", "C", "Java"],
+    "backend": ["FastAPI", "Flask"],
+    "frontend": ["Streamlit", "React.js", "HTML", "CSS", "JavaScript"],
+    "cloud": ["AWS", "Render"],
+    "databases": ["MySQL", "Oracle SQL", "PostgreSQL"],
+    "machine_learning_data_science": ["NumPy", "Pandas", "Scikit-learn", "Sentence Transformers"],
+    "tools": ["VS Code", "GitHub", "Code::Blocks", "Jupyter Notebook"]
+  },
+  "competitive_programming_links": {
+    "leetcode": "https://leetcode.com/u/NandiniAggarwal14/",
+    "codechef": "",
+    "codeforces": ""
+  },
+  "experience": [],
+  "links": {
+    "github": "https://github.com/NandiniAggarwal14",
+    "linkedin": "https://www.linkedin.com/in/nandini-aggarwal-51b270284/"
+  }
+}

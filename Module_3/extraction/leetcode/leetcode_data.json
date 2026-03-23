@@ -1,0 +1,26 @@
+{
+  "username": "NandiniAggarwal14",
+  "problems_solved": {
+    "total": 116,
+    "easy": 47,
+    "medium": 60,
+    "hard": 9
+  },
+  "skill_tags": [],
+  "languages_used": [
+    {
+      "language": "C++",
+      "problems_solved": 115
+    },
+    {
+      "language": "C",
+      "problems_solved": 4
+    }
+  ],
+  "contest": {
+    "attended": 0,
+    "rating": 0,
+    "global_ranking": 0,
+    "top_percentage": 0
+  }
+}

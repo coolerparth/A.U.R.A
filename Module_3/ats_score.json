@@ -1,0 +1,142 @@
+{
+  "final_ats_score": 47.61,
+  "score_scale": "0-100",
+  "scoring_profiles": {
+    "keyword_biased": {
+      "exact_keyword": 0.75,
+      "semantic": 0.1,
+      "numeric": 0.1,
+      "job_title": 0.05
+    },
+    "semantic_biased": {
+      "semantic": 0.75,
+      "exact_keyword": 0.1,
+      "numeric": 0.1,
+      "job_title": 0.05
+    }
+  },
+  "final_score_weights": {
+    "required_qualifications": 0.3,
+    "responsibilities": 0.3,
+    "preferred_qualifications": 0.2,
+    "skills": 0.2
+  },
+  "effective_final_score_weights": {
+    "required_qualifications": 0.3,
+    "responsibilities": 0.3,
+    "preferred_qualifications": 0.2,
+    "skills": 0.2
+  },
+  "zero_score_sections": [],
+  "final_weight_penalty_due_to_zero_sections": 0.0,
+  "component_scores": {
+    "required_qualifications": {
+      "profile_used": "Keyword-Biased",
+      "final_section_score": 38.16,
+      "breakdown": {
+        "exact_keyword_score": 31.25,
+        "semantic_similarity": 0.0,
+        "numeric_metrics_score": 100.0,
+        "job_title_score": 0.0
+      },
+      "effective_component_weights": {
+        "exact_keyword": 0.8558823529411765,
+        "semantic": 0.0,
+        "numeric": 0.11411764705882355,
+        "job_title": 0.0
+      },
+      "zero_components": [
+        "semantic",
+        "job_title"
+      ],
+      "penalty_weight_due_to_zeros": 0.03,
+      "matched_keywords": [
+        "algorithms",
+        "and",
+        "apis",
+        "c",
+        "in",
+        "java",
+        "python",
+        "rest",
+        "system",
+        "with"
+      ],
+      "numeric_details": {
+        "message": "No numeric requirements found in job description section."
+      }
+    },
+    "responsibilities": {
+      "profile_used": "Semantic-Biased",
+      "final_section_score": 51.08,
+      "breakdown": {
+        "semantic_similarity": 0.0,
+        "exact_keyword_score": 21.62,
+        "numeric_metrics_score": 100.0,
+        "job_title_score": 0.0
+      },
+      "effective_component_weights": {
+        "semantic": 0.0,
+        "exact_keyword": 0.42000000000000004,
+        "numeric": 0.42000000000000004,
+        "job_title": 0.0
+      },
+      "zero_components": [
+        "semantic",
+        "job_title"
+      ],
+      "penalty_weight_due_to_zeros": 0.16,
+      "numeric_details": {
+        "message": "No numeric requirements found in job description section."
+      }
+    },
+    "preferred_qualifications": {
+      "profile_used": "Semantic-Biased",
+      "final_section_score": 51.69,
+      "breakdown": {
+        "semantic_similarity": 0.0,
+        "exact_keyword_score": 23.08,
+        "numeric_metrics_score": 100.0,
+        "job_title_score": 0.0
+      },
+      "effective_component_weights": {
+        "semantic": 0.0,
+        "exact_keyword": 0.42000000000000004,
+        "numeric": 0.42000000000000004,
+        "job_title": 0.0
+      },
+      "zero_components": [
+        "semantic",
+        "job_title"
+      ],
+      "penalty_weight_due_to_zeros": 0.16,
+      "numeric_details": {
+        "message": "No numeric requirements found in job description section."
+      }
+    },
+    "skills": {
+      "profile_used": "Semantic-Biased",
+      "final_section_score": 52.5,
+      "breakdown": {
+        "semantic_similarity": 0.0,
+        "exact_keyword_score": 25.0,
+        "numeric_metrics_score": 100.0,
+        "job_title_score": 0.0
+      },
+      "effective_component_weights": {
+        "semantic": 0.0,
+        "exact_keyword": 0.42000000000000004,
+        "numeric": 0.42000000000000004,
+        "job_title": 0.0
+      },
+      "zero_components": [
+        "semantic",
+        "job_title"
+      ],
+      "penalty_weight_due_to_zeros": 0.16,
+      "numeric_details": {
+        "message": "No numeric requirements found in job description section."
+      }
+    }
+  }
+}

@@ -1,0 +1,105 @@
+You are taking over the Resume_Scoring_Engine project on a different branch.
+Read this first and use it as the working prompt/context.
+
+PROJECT GOAL
+- Build a resume data pipeline + ATS scoring system.
+- Pipeline: collect coding profile data and create resume.json.
+- ATS: compare resume.json vs job_description.json and output ats_score.json (0-100).
+
+CURRENT REPO SNAPSHOT (IMPORTANT)
+- Main scripts:
+  - pipeline.py
+  - ats_scoring_engine.py
+  - download_model.py
+- Key data files:
+  - individual1.json (base candidate input)
+  - job_description.json (job input)
+  - resume.json (merged profile output)
+  - ats_score.json (latest ATS output)
+- Docs:
+  - README.md has been fully rewritten and reflects current behavior.
+
+WHAT WAS CHANGED (RECENT)
+1) README FULL UPDATE
+- README.md now documents:
+  - Pipeline workflow
+  - ATS workflow
+  - Current weights
+  - Profile logic
+  - Zero-score redistribution rule
+  - Setup/run/troubleshooting
+
+2) ATS ENGINE RE-DESIGN (ats_scoring_engine.py)
+- Old simple model replaced by profile-based field scoring.
+- Final section weights currently:
+  - required_qualifications: 0.30
+  - responsibilities: 0.30
+  - preferred_qualifications: 0.20
+  - skills: 0.20
+- Two scoring profiles:
+  - KEYWORD_BIASED_PROFILE:
+    - exact_keyword 0.75, semantic 0.10, numeric 0.10, job_title 0.05
+  - SEMANTIC_BIASED_PROFILE:
+    - semantic 0.75, exact_keyword 0.10, numeric 0.10, job_title 0.05
+- Field-to-profile mapping:
+  - required_qualifications -> keyword-biased
+  - responsibilities -> semantic-biased
+  - preferred_qualifications -> semantic-biased
+  - skills -> semantic-biased
+
+3) ZERO-SCORE REDISTRIBUTION RULE ADDED
+- If any component score is zero:
+  - 80% of that component weight is redistributed among non-zero peers
+  - 20% remains as penalty
+- Same logic also applies at top-level section weights if an entire section score is zero.
+- Output diagnostics now include:
+  - effective_component_weights
+  - zero_components
+  - penalty_weight_due_to_zeros
+  - effective_final_score_weights
+  - zero_score_sections
+  - final_weight_penalty_due_to_zero_sections
+
+4) ERROR FIXES COMPLETED
+- Previous NameError issues (e.g., flatten_to_text not defined) were fixed.
+- Script currently runs successfully:
+  python ats_scoring_engine.py --job job_description.json --resume resume.json --output ats_score.json
+
+LATEST OBSERVED RESULT
+- final_ats_score currently ~47.61 on the current sample files.
+- semantic_similarity is often 0.0 in current output.
+- job_title_score can be 0.0 if title fields are absent/mismatched.
+
+KNOWN TECHNICAL NOTES
+- sentence-transformers is in requirements.txt.
+- MODEL is loaded as all-MiniLM-L6-v2 in ats_scoring_engine.py.
+- NLTK import exists, but resource initialization was changed over iterations; verify NLTK runtime behavior if you modify normalization.
+- numeric_metrics_score currently gives full credit when no numeric requirement exists in a section.
+
+PIPELINE STATUS
+- pipeline.py orchestrates:
+  1) extraction.extract_links.generate_config_from_individual
+  2) extraction.extract_all.extract_all_profiles(config)
+  3) extraction.merge_data.merge_all_data(...)
+- Links/usernames are extracted directly from individual1.json (not from .env passing).
+
+IF YOU CONTINUE WORK, RECOMMENDED CHECKLIST
+1) Run end-to-end:
+   - python pipeline.py
+   - python ats_scoring_engine.py --job job_description.json --resume resume.json --output ats_score.json
+2) Validate semantic scores are non-zero when expected.
+3) Decide if numeric_metrics_score default behavior (no numeric requirement => 1.0) should remain.
+4) Keep README.md aligned with any logic changes.
+
+EXPECTED OUTPUT CONTRACT (ats_score.json)
+- final_ats_score
+- score_scale
+- scoring_profiles
+- final_score_weights
+- effective_final_score_weights
+- zero_score_sections
+- final_weight_penalty_due_to_zero_sections
+- component_scores (with per-section breakdown + redistribution diagnostics)
+
+BRANCH HANDOFF INTENT
+- This file is the operational handoff prompt for another Copilot/agent to get full context quickly and continue work safely.

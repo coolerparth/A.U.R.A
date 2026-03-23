@@ -1,0 +1,54 @@
+{
+  "repo_info": {
+    "name": "NotesHive",
+    "full_name": "NandiniAggarwal14/NotesHive",
+    "description": "A smart and organized platform for managing, searching, and accessing academic notes efficiently. Features include:  Semantic Search: Quickly find relevant notes using AI-powered text embeddings.  Keyword-based Access Control: Structured access to notes based on user roles.  Cloud Integration: Supports storing and retrieving notes via Google Drive.",
+    "stars": 1,
+    "forks": 1,
+    "watchers": 1,
+    "topics": [],
+    "license": null,
+    "default_branch": "main",
+    "open_issues": 0,
+    "created_at": "2025-10-07T15:20:09Z",
+    "updated_at": "2026-01-06T17:22:58Z",
+    "languages": {
+      "HTML": 38136,
+      "Python": 37679,
+      "CSS": 12654,
+      "JavaScript": 6235
+    },
+    "repo_url": "https://github.com/NandiniAggarwal14/NotesHive"
+  },
+  "repo_readme": {
+    "exists": true,
+    "content": "# \ud83d\udcdd NotesHive\n\n**NotesHive** is a Flask-based web application for creating, managing, organizing, and searching personal notes with role-based access control. It features both keyword and AI-powered semantic search capabilities, Google Drive integration, and a beautiful, responsive UI.\n\n---\n\n## \ud83c\udf1f Features\n\n### Core Functionality\n- **User Authentication**: Secure login system with role-based access (Student/Teacher)\n- **CRUD Operations**: Create, Read, Update, and Delete notes\n- **File Management**: Upload files or attach Google Drive links\n- **Smart Search**: Combined keyword and semantic search using AI embeddings\n- **Role-Based Access Control**:\n  - **Students**: View all notes, download files, search content\n  - **Teachers**: Full CRUD access, can delete any note, manage all content\n\n### Advanced Features\n- **Semantic Search**: AI-powered search using sentence transformers (finds related content by meaning)\n- **Google Drive Integration**: Attach, preview, and download files from Google Drive\n- **Responsive UI**: Modern, mobile-friendly design with toast notifications\n- **Real-time Feedback**: Flash messages and interactive UI elements\n- **Session Management**: Secure user sessions with automatic logout\n\n---\n\n## \ud83d\udee0\ufe0f Technology Stack\n\n### Backend\n- **Framework**: Flask (Python)\n- **Database**: MySQL\n- **ORM**: SQLAlchemy, mysql-connector-python\n- **AI/ML**:\n  - sentence-transformers (all-MiniLM-L6-v2)\n  - scikit-learn (cosine similarity)\n  - pandas, numpy\n\n### Frontend\n- **HTML5** with Jinja2 templating\n- **CSS3** (Custom styles with Inter font)\n- **Vanilla JavaScript** (No frameworks)\n- **Google Fonts**: Inter font family\n\n### Security\n- **Session-based authentication**\n- **Role-based access control**\n- **Password protection** (Plain text for development, can be hashed)\n\n---\n\n## \ud83d\udcc1 Project Structure\n```\nNotesHive/\n\u2502\n\u251c\u2500\u2500 app.py\n\u251c\u2500\u2500 dblink.py\n\u251c\u2500\u2500 embeddings.py\n\u251c\u2500\u2500 semantic_search.py\n\u251c\u2500\u2500 noteshive_schema.sql\n\u251c\u2500\u2500 noteshive_values.sql\n\u251c\u2500\u2500 notes_with_content.csv\n\u251c\u2500\u2500 note_embeddings.pkl\n\u2514\u2500\u2500 README.md\n```\n\n---\n\n## \ud83d\udd27 Setup Instructions\n\n### 1. Clone the repository\n```bash\ngit clone https://github.com/NandiniAggarwal14/NotesHive.git\ncd NotesHive\n```\n\n### 2. Install dependencies\n```bash\npip install -r requirements.txt\n```\n\n### 3. Setup database\n```bash\nmysql -u root -p < noteshive_schema.sql\nmysql -u root -p < noteshive_values.sql\n```\n\n### 4. Run embedding generation and search modules\n```bash\npython embeddings.py\npython semantic_search.py\n```\n\n---\n\n## \ud83d\udccc Future Work\n- Implement role-based access control (RBAC).\n- Integrate plagiarism check for note uploads.\n- Build a polished frontend for a complete end-to-end system.\n",
+    "metadata": {
+      "headings": [
+        "\ud83d\udcdd NotesHive",
+        "\ud83c\udf1f Features",
+        "Core Functionality",
+        "Advanced Features",
+        "\ud83d\udee0\ufe0f Technology Stack",
+        "Backend",
+        "Frontend",
+        "Security",
+        "\ud83d\udcc1 Project Structure",
+        "\ud83d\udd27 Setup Instructions",
+        "1. Clone the repository",
+        "2. Install dependencies",
+        "3. Setup database",
+        "4. Run embedding generation and search modules",
+        "\ud83d\udccc Future Work"
+      ],
+      "links": [],
+      "images": [],
+      "badges": [],
+      "detected_tech_stack": [
+        "javascript",
+        "flask",
+        "python"
+      ]
+    }
+  }
+}
