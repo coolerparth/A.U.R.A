@@ -121,20 +121,28 @@
     ]
   },
   "experience": [],
+  "education": {
+    "degree": "B.Tech in Computer Science (AI & Data Science)",
+    "institution": "Graphic Era (Deemed to be University), Dehradun",
+    "start_year": 2023,
+    "expected_graduation_year": 2027,
+    "current_gpa": 9.54,
+    "scale": 10.0
+  },
   "competitive_programming": {
     "leetcode": {
       "username": "NandiniAggarwal14",
       "problems_solved": {
-        "total": 116,
-        "easy": 47,
-        "medium": 60,
+        "total": 120,
+        "easy": 49,
+        "medium": 62,
         "hard": 9
       },
       "skill_tags": [],
       "languages_used": [
         {
           "language": "C++",
-          "problems_solved": 115
+          "problems_solved": 119
         },
         {
           "language": "C",
@@ -156,21 +164,19 @@
       "username": "NandiniAggarwal14",
       "name": "Nandini Aggarwal",
       "bio": "Hi, Nandini Aggarwal this side!\r\nI am passionate about transforming ideas into practical solutions by developing intelligent systems.",
-      "public_repos": 18,
+      "public_repos": 19,
       "followers": 2,
       "profile_url": "https://github.com/NandiniAggarwal14"
     },
     "tech_stack": {
       "languages": {
         "Jupyter Notebook": 3301903,
-        "C++": 88364,
-        "C": 50826,
-        "HTML": 66503,
-        "JavaScript": 7896,
-        "Python": 10524911,
-        "CSS": 12654,
-        "PowerShell": 25697,
-        "Batchfile": 1369
+        "JavaScript": 26561,
+        "Python": 10550254,
+        "HTML": 74273,
+        "CSS": 19123,
+        "C++": 90003,
+        "C": 50826
       },
       "languages_ranked": [
         "Python",
@@ -178,10 +184,8 @@
         "C++",
         "HTML",
         "C",
-        "PowerShell",
-        "CSS",
         "JavaScript",
-        "Batchfile"
+        "CSS"
       ],
       "topics_and_tools": []
     }

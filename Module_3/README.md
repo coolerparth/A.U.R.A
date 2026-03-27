@@ -1,56 +1,19 @@
-﻿# Resume Scoring Engine
+﻿# Smart Resume Scoring Engine
 
-A Python project that:
-1. Builds a structured `resume.json` from your base profile + coding-platform data.
-2. Scores the resume against a job description using a hybrid ATS model.
+## Overview
+Smart Resume Scoring Engine is an end-to-end Python system that takes a candidate JSON and a job description JSON, enriches the candidate profile with platform data (GitHub, LeetCode, Codeforces, CodeChef), builds a unified `resume.json`, and generates a detailed ATS result in `ats_score.json`.
 
----
-
-## Current Project Scope
-
-This repository contains two workflows:
-
-- **Resume Data Pipeline** (`pipeline.py`)
-  - Reads `individual1.json`
-  - Extracts usernames from profile links
-  - Pulls data from GitHub, LeetCode, Codeforces, CodeChef
-  - Merges everything into `resume.json`
-
-- **ATS Scoring Engine** (`ats_scoring_engine.py`)
-  - Reads `job_description.json` and `resume.json`
-  - Computes section-wise scores with weighted profiles
-  - Produces `ats_score.json`
-
----
-
-## Repository Structure
-
-```text
-Resume_Scoring_Engine/
-├── pipeline.py
-├── ats_scoring_engine.py
-├── download_model.py
-├── requirements.txt
-├── README.md
-│
-├── individual1.json
-├── job_description.json
-├── resume.json
-├── ats_score.json
-│
-└── extraction/
-    ├── extract_links.py
-    ├── extract_all.py
-    ├── merge_data.py
-    ├── github/
-    ├── leetcode/
-    ├── codeforces/
-    └── codechef/
-```
-
----
+## Features
+- Proprietary deterministic scoring algorithm (no LLM-based score generation)
+- Multi-platform technical data integration
+- Semantic and keyword-based matching against JD sections
+- Weighted, section-wise ATS scoring with detailed diagnostics
+- Single-command central pipeline execution
 
 ## Installation
+1. Clone the repository.
+2. Create and activate a virtual environment.
+3. Install dependencies.
 
 ```bash
 python -m venv .venv
@@ -58,148 +21,51 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-Optional but recommended (pre-download semantic model):
+Optional model warm-up:
 
 ```bash
 python download_model.py
 ```
 
----
+## Usage
 
-## 1) Resume Data Pipeline
-
-### Input
-Edit `individual1.json`.
-
-### Run
-```bash
-python pipeline.py
-```
-
-### Custom paths
-```bash
-python pipeline.py --input my_input.json --output my_resume.json
-```
-
-### Behavior notes
-- Missing platform links are safely skipped.
-- Output keeps stable keys for platforms.
-- Pipeline currently uses GitHub, LeetCode, Codeforces, and CodeChef extractors.
-
----
-
-## 2) ATS Scoring Engine
-
-### Run
-```bash
-python ats_scoring_engine.py --job job_description.json --resume resume.json --output ats_score.json
-```
-
-### Inputs
-- `job_description.json`
-- `resume.json`
-
-### Output
-- `ats_score.json`
-
----
-
-## ATS Scoring Design (Current)
-
-Final score combines 4 JD sections:
-
-- `required_qualifications`: **30%**
-- `responsibilities`: **30%**
-- `preferred_qualifications`: **20%**
-- `skills`: **20%**
-
-### Profile-based sub-scoring
-
-Each section uses one profile:
-
-#### Keyword-Biased profile
-(used for `required_qualifications`)
-- `exact_keyword`: 0.75
-- `semantic`: 0.10
-- `numeric`: 0.10
-- `job_title`: 0.05
-
-#### Semantic-Biased profile
-(used for `responsibilities`, `preferred_qualifications`, `skills`)
-- `semantic`: 0.75
-- `exact_keyword`: 0.10
-- `numeric`: 0.10
-- `job_title`: 0.05
-
----
-
-## Zero-Score Redistribution Rule (Current)
-
-If any score is zero:
-
-- **80%** of that weight is redistributed among non-zero peers
-- **20%** is retained as penalty
-
-This applies both:
-- inside each section (component level), and
-- across final section weights (section level), when needed.
-
-Diagnostics returned in output include:
-- `effective_component_weights`
-- `zero_components`
-- `penalty_weight_due_to_zeros`
-- `effective_final_score_weights`
-- `zero_score_sections`
-- `final_weight_penalty_due_to_zero_sections`
-
----
-
-## ATS Output Structure (Summary)
-
-`ats_score.json` contains:
-- `final_ats_score` (0–100)
-- `scoring_profiles`
-- `final_score_weights`
-- `effective_final_score_weights`
-- `component_scores` for each section with:
-  - `final_section_score`
-  - `breakdown` (`exact_keyword_score`, `semantic_similarity`, `numeric_metrics_score`, `job_title_score`)
-  - redistribution diagnostics
-
----
-
-## Typical Command Flow
+Run the full workflow (extraction + merge + scoring) with one command:
 
 ```bash
-python pipeline.py
-python ats_scoring_engine.py --job job_description.json --resume resume.json --output ats_score.json
+python pipeline.py --candidate individual1.json --job job_description.json --output ats_score.json
 ```
 
----
+What this command does:
+1. Reads the candidate JSON.
+2. Extracts platform usernames and fetches profile data.
+3. Merges all data into `resume.json`.
+4. Scores `resume.json` against the job description.
+5. Writes detailed ATS results to the output path.
 
-## Troubleshooting
+## Test Pipeline (Interactive)
 
-### `semantic_similarity` is always `0.0`
-- Ensure dependencies are installed in active venv.
-- Run model pre-download.
+Use the interactive tester when you already have a resume JSON and want to score quickly.
 
 ```bash
-pip install -r requirements.txt
-python download_model.py
+python test_pipeline.py
 ```
 
-### ATS score is unexpectedly low
-Usually due to:
-- low keyword overlap,
-- title mismatch (`job_title_score = 0`),
-- low semantic overlap.
+The script will ask for:
+1. Job description JSON path
+2. Resume JSON path
 
-### Git keeps showing Python cache changes
-Ignore and untrack `__pycache__` / `.pyc` via `.gitignore` and git index cleanup.
+It writes the result to `ats_score.json` in the project root.
 
----
+Example interactive input:
+1. `job_description.json`
+2. `resume2.json`
 
-## Notes
+Direct test command (non-interactive):
 
-- Weights are configurable in `ats_scoring_engine.py`.
-- Re-run scorer after weight/profile changes to regenerate `ats_score.json`.
+```bash
+python test_pipeline.py --job job_description.json --resume resume2.json --output ats_score.json
+```
+
+## Output
+- `resume.json`: merged candidate data with extracted platform information
+- `ats_score.json`: final composite score and section/component-level breakdown

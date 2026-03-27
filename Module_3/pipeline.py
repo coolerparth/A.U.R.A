@@ -1,157 +1,110 @@
-"""
-Main Pipeline for Resume Data Extraction and Generation
+"""Central pipeline: candidate JSON -> resume.json -> ats_score.json."""
 
-This script orchestrates the entire process:
-1. Reads individual1.json
-2. Extracts profile links/usernames directly from JSON
-3. Fetches data from all competitive programming platforms and GitHub
-4. Merges everything into a final resume.json
-
-Usage:
-    python pipeline.py
-    
-Or with custom input file:
-    python pipeline.py --input my_resume.json
-"""
-
-import sys
-import os
 import argparse
+import os
+import sys
 
-# Add extraction directory to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'extraction'))
+REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
 
-from extraction.extract_links import generate_config_from_individual
+from ats_scoring_engine import compute_ats_score, load_json, save_json
 from extraction.extract_all import extract_all_profiles
+from extraction.extract_links import generate_config_from_individual
 from extraction.merge_data import merge_all_data
 
 
-def run_pipeline(input_file='individual1.json', output_file='resume.json'):
-    """
-    Run the complete pipeline from individual JSON to final resume JSON
-    
-    Args:
-        input_file: Path to input JSON file with basic resume info (default: individual1.json)
-        output_file: Path to output final resume JSON (default: resume.json)
-    """
-    print("\n" + "=" * 70)
-    print(" " * 15 + "RESUME GENERATION PIPELINE")
-    print("=" * 70)
-    print(f"\nInput:  {input_file}")
-    print(f"Output: {output_file}")
-    print("=" * 70)
-    
+def run_pipeline(candidate_path: str, job_path: str, output_path: str, resume_path: str = "resume.json") -> bool:
+    """Run extraction, merge, and ATS scoring in one command."""
+    repo_root = os.path.dirname(os.path.abspath(__file__))
+    extraction_dir = os.path.join(repo_root, "extraction")
+
+    candidate_abs = os.path.abspath(candidate_path)
+    job_abs = os.path.abspath(job_path)
+    output_abs = os.path.abspath(output_path)
+    resume_abs = os.path.abspath(resume_path)
+
+    print("\n" + "=" * 72)
+    print("SMART RESUME SCORING ENGINE - CENTRAL PIPELINE")
+    print("=" * 72)
+    print(f"Candidate Input : {candidate_abs}")
+    print(f"Job Input       : {job_abs}")
+    print(f"Resume Output   : {resume_abs}")
+    print(f"Score Output    : {output_abs}")
+    print("=" * 72)
+
     try:
-        # Step 1: Extract links/usernames directly from individual JSON
-        print("\n" + "▶ " * 35)
-        print("STEP 1: EXTRACTING PROFILE LINKS FROM INPUT FILE")
-        print("▶ " * 35)
-        
-        config = generate_config_from_individual(individual_json_path=input_file)
-        
-        # Report how many profiles were found, but always continue —
-        # platforms not present in the input will be skipped during extraction
-        # and will appear as empty entries in the final resume.json
-        found_count = len([v for v in config.values() if v])
-        print(f"\n✓ Step 1 Complete: {found_count} profile(s) found — pipeline continues regardless")
-        
-        # Step 2: Extract data from all platforms
-        print("\n" + "▶ " * 35)
-        print("STEP 2: EXTRACTING DATA FROM PLATFORMS")
-        print("▶ " * 35)
-        
-        # Change to extraction directory to run extraction
+        print("\n[1/4] Extracting profile configuration from candidate JSON")
+        config = generate_config_from_individual(individual_json_path=candidate_abs)
+        print(f"  Found platforms: {', '.join(sorted(config.keys())) if config else 'none'}")
+
+        print("\n[2/4] Extracting platform data")
         original_dir = os.getcwd()
-        os.chdir('extraction')
-        
+        os.chdir(extraction_dir)
         try:
             extract_all_profiles(config)
         finally:
-            # Change back to original directory
             os.chdir(original_dir)
-        
-        print("\n✓ Step 2 Complete: Platform data extracted")
-        
-        # Step 3: Merge all data into final resume
-        print("\n" + "▶ " * 35)
-        print("STEP 3: MERGING DATA INTO FINAL RESUME")
-        print("▶ " * 35)
-        
-        # Change to extraction directory for merging
-        os.chdir('extraction')
-        
+
+        print("\n[3/4] Merging extracted platform data into resume JSON")
+        os.chdir(extraction_dir)
         try:
-            resume = merge_all_data(
-                individual_json_path=f'../{input_file}',
-                output_path=f'../{output_file}'
-            )
+            merge_all_data(individual_json_path=candidate_abs, output_path=resume_abs)
         finally:
             os.chdir(original_dir)
-        
-        print("\n✓ Step 3 Complete: Final resume generated")
-        
-        # Final success message
-        print("\n" + "=" * 70)
-        print(" " * 20 + "✓ PIPELINE COMPLETED SUCCESSFULLY!")
-        print("=" * 70)
-        print(f"\n📄 Your final resume has been generated: {output_file}")
-        print("\nThe resume includes:")
-        print("  • Personal information and links")
-        print("  • Projects and skills")
-        print("  • Competitive programming statistics")
-        print("  • GitHub profile and repository data")
-        print("\n" + "=" * 70)
-        
+
+        print("\n[4/4] Computing ATS score")
+        job_json = load_json(job_abs)
+        resume_json = load_json(resume_abs)
+        result = compute_ats_score(job_json, resume_json)
+        save_json(output_abs, result)
+
+        print("\n" + "=" * 72)
+        print("PIPELINE COMPLETED SUCCESSFULLY")
+        print("=" * 72)
+        print(f"Generated: {resume_abs}")
+        print(f"Generated: {output_abs}")
+        print(f"Final ATS Score: {result.get('final_ats_score')}")
         return True
-        
-    except FileNotFoundError as e:
-        print(f"\n❌ ERROR: {str(e)}")
-        print("\nPlease make sure:")
-        print(f"  1. {input_file} exists in the current directory")
-        print("  2. The file contains valid JSON data")
-        return False
-        
-    except Exception as e:
-        print(f"\n❌ ERROR: Pipeline failed with error:")
-        print(f"   {str(e)}")
-        import traceback
-        print("\nFull traceback:")
-        traceback.print_exc()
+    except Exception as exc:
+        print("\nPipeline failed")
+        print(str(exc))
         return False
 
 
-def main():
-    """Main entry point with argument parsing"""
+def main() -> None:
     parser = argparse.ArgumentParser(
-        description='Resume Generation Pipeline - Extract and merge resume data from multiple sources',
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Examples:
-  python pipeline.py                              # Use default individual1.json
-  python pipeline.py --input mydata.json          # Use custom input file
-  python pipeline.py --input data.json --output final_resume.json
-        """
+        description="Central pipeline for extraction + merge + ATS scoring",
     )
-    
     parser.add_argument(
-        '--input', '-i',
-        default='individual1.json',
-        help='Input JSON file with basic resume info (default: individual1.json)'
+        "--candidate",
+        required=True,
+        help="Path to raw candidate JSON (example: individual1.json)",
     )
-    
     parser.add_argument(
-        '--output', '-o',
-        default='resume.json',
-        help='Output JSON file for final resume (default: resume.json)'
+        "--job",
+        required=True,
+        help="Path to job description JSON (example: job_description.json)",
     )
-    
+    parser.add_argument(
+        "--output",
+        required=True,
+        help="Path to ATS output JSON (example: ats_score.json)",
+    )
+    parser.add_argument(
+        "--resume-output",
+        default="resume.json",
+        help="Path to intermediate merged resume JSON (default: resume.json)",
+    )
+
     args = parser.parse_args()
-    
-    # Run the pipeline
-    success = run_pipeline(args.input, args.output)
-    
-    # Exit with appropriate code
-    sys.exit(0 if success else 1)
+    ok = run_pipeline(
+        candidate_path=args.candidate,
+        job_path=args.job,
+        output_path=args.output,
+        resume_path=args.resume_output,
+    )
+    sys.exit(0 if ok else 1)
 
 
 if __name__ == "__main__":

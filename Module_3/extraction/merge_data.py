@@ -46,6 +46,7 @@ def merge_all_data(individual_json_path='../individual1.json', output_path='../r
         "projects": individual_data.get("projects", []),
         "skills": individual_data.get("skills", {}),
         "experience": individual_data.get("experience", []),
+        "education": individual_data.get("education", {}),
         # Always present with keys for every platform, empty dict if not extracted
         "competitive_programming": {
             "leetcode": {},

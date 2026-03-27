@@ -1,5 +1,5 @@
 {
-  "final_ats_score": 47.61,
+  "final_ats_score": 77.73,
   "score_scale": "0-100",
   "scoring_profiles": {
     "keyword_biased": {
@@ -9,8 +9,8 @@
       "job_title": 0.05
     },
     "semantic_biased": {
-      "semantic": 0.75,
-      "exact_keyword": 0.1,
+      "semantic": 0.45,
+      "exact_keyword": 0.4,
       "numeric": 0.1,
       "job_title": 0.05
     }
@@ -31,111 +31,348 @@
   "final_weight_penalty_due_to_zero_sections": 0.0,
   "component_scores": {
     "required_qualifications": {
-      "profile_used": "Keyword-Biased",
-      "final_section_score": 38.16,
+      "profile_used": "Smart-Parser",
+      "final_section_score": 100.0,
       "breakdown": {
-        "exact_keyword_score": 31.25,
-        "semantic_similarity": 0.0,
-        "numeric_metrics_score": 100.0,
-        "job_title_score": 0.0
+        "smart_parser_score": 100.0
       },
       "effective_component_weights": {
-        "exact_keyword": 0.8558823529411765,
-        "semantic": 0.0,
-        "numeric": 0.11411764705882355,
-        "job_title": 0.0
+        "smart_parser": 1.0
       },
-      "zero_components": [
-        "semantic",
-        "job_title"
+      "zero_components": [],
+      "penalty_weight_due_to_zeros": 0.0,
+      "matched_details": [
+        "Degree title check passed"
       ],
-      "penalty_weight_due_to_zeros": 0.03,
-      "matched_keywords": [
-        "algorithms",
-        "and",
-        "apis",
-        "c",
-        "in",
-        "java",
-        "python",
-        "rest",
-        "system",
-        "with"
-      ],
-      "numeric_details": {
-        "message": "No numeric requirements found in job description section."
+      "smart_parser_details": {
+        "gpa_check": {
+          "passed": false,
+          "applicable": false,
+          "reason": "Could not find GPA rule in JD or GPA in resume education."
+        },
+        "graduation_year_check": {
+          "passed": false,
+          "applicable": false,
+          "reason": "Could not find graduation year rule in JD or graduation year in resume education."
+        },
+        "degree_title_check": {
+          "required_keywords": [
+            "computer science"
+          ],
+          "candidate_degree": "B.Tech in Computer Science (AI & Data Science)",
+          "passed": true
+        }
       }
     },
     "responsibilities": {
       "profile_used": "Semantic-Biased",
-      "final_section_score": 51.08,
+      "final_section_score": 67.56,
       "breakdown": {
-        "semantic_similarity": 0.0,
-        "exact_keyword_score": 21.62,
-        "numeric_metrics_score": 100.0,
-        "job_title_score": 0.0
+        "semantic_similarity": 62.93,
+        "exact_keyword_score": 75.0,
+        "numeric_metrics_score": 0.0,
+        "job_title_score": 49.73
       },
       "effective_component_weights": {
-        "semantic": 0.0,
-        "exact_keyword": 0.42000000000000004,
-        "numeric": 0.42000000000000004,
-        "job_title": 0.0
+        "semantic": 0.5,
+        "exact_keyword": 0.4444444444444445,
+        "numeric": 0.0,
+        "job_title": 0.05555555555555556
       },
-      "zero_components": [
-        "semantic",
-        "job_title"
+      "zero_components": [],
+      "non_applicable_components": [
+        "numeric"
       ],
-      "penalty_weight_due_to_zeros": 0.16,
+      "penalty_weight_due_to_zeros": 0.0,
+      "matched_keywords": [
+        "availability",
+        "best",
+        "completing",
+        "complex",
+        "consistency",
+        "cooperative",
+        "determine",
+        "efficiency",
+        "environment",
+        "feature",
+        "feedback",
+        "improve",
+        "industry",
+        "internal",
+        "learn",
+        "management",
+        "methods",
+        "monitoring",
+        "new",
+        "observability",
+        "operations",
+        "performance",
+        "practices",
+        "principles",
+        "proactively",
+        "problems",
+        "products",
+        "projects",
+        "reliability",
+        "requirements",
+        "scale",
+        "seek",
+        "solutions",
+        "solve",
+        "sound",
+        "stakeholders",
+        "technical",
+        "time",
+        "user"
+      ],
       "numeric_details": {
-        "message": "No numeric requirements found in job description section."
+        "score": 0.0,
+        "required_score": 0.0,
+        "preferred_bonus_score": 0.0,
+        "required_entities": {},
+        "preferred_entities": {},
+        "resume_entities": {},
+        "required_details": [],
+        "preferred_details": []
+      },
+      "job_title_details": {
+        "score": 0.4973159968480468,
+        "relevant_sections_count": 8,
+        "average_similarity": 0.3675942812114954,
+        "matches": [
+          {
+            "source": "project_1",
+            "similarity": 0.2997
+          },
+          {
+            "source": "project_2",
+            "similarity": 0.2154
+          },
+          {
+            "source": "project_3",
+            "similarity": 0.2394
+          },
+          {
+            "source": "experience_1",
+            "similarity": 0.5626
+          },
+          {
+            "source": "skills_languages",
+            "similarity": 0.2962
+          },
+          {
+            "source": "skills_software_development",
+            "similarity": 0.3683
+          },
+          {
+            "source": "education",
+            "similarity": 0.3569
+          },
+          {
+            "source": "github_bio",
+            "similarity": 0.6021
+          }
+        ]
+      },
+      "responsibility_project_mapper": {
+        "score": 0.6292635202407837,
+        "best_project": "Software Engineering Project Contributor",
+        "project_scores": [
+          {
+            "project": "Software Engineering Project Contributor",
+            "score": 0.6293,
+            "type": "experience"
+          },
+          {
+            "project": "User-Level Firewall Framework",
+            "score": 0.1856,
+            "type": "project"
+          },
+          {
+            "project": "Smart Emergency Assistance System",
+            "score": 0.1587,
+            "type": "project"
+          },
+          {
+            "project": "NotesHive",
+            "score": 0.0065,
+            "type": "project"
+          },
+          {
+            "project": "ReadBuddy: AI Video Analyzer",
+            "score": 0.0,
+            "type": "project"
+          }
+        ]
       }
     },
     "preferred_qualifications": {
       "profile_used": "Semantic-Biased",
-      "final_section_score": 51.69,
+      "final_section_score": 59.8,
       "breakdown": {
-        "semantic_similarity": 0.0,
-        "exact_keyword_score": 23.08,
-        "numeric_metrics_score": 100.0,
-        "job_title_score": 0.0
+        "semantic_similarity": 54.81,
+        "exact_keyword_score": 66.67,
+        "numeric_metrics_score": 0.0,
+        "job_title_score": 49.73
       },
       "effective_component_weights": {
-        "semantic": 0.0,
-        "exact_keyword": 0.42000000000000004,
-        "numeric": 0.42000000000000004,
-        "job_title": 0.0
+        "semantic": 0.5,
+        "exact_keyword": 0.4444444444444445,
+        "numeric": 0.0,
+        "job_title": 0.05555555555555556
       },
-      "zero_components": [
-        "semantic",
-        "job_title"
+      "zero_components": [],
+      "non_applicable_components": [
+        "numeric"
       ],
-      "penalty_weight_due_to_zeros": 0.16,
+      "penalty_weight_due_to_zeros": 0.0,
+      "matched_keywords": [
+        "algorithms",
+        "computer",
+        "data",
+        "including",
+        "science",
+        "structures"
+      ],
       "numeric_details": {
-        "message": "No numeric requirements found in job description section."
+        "score": 0.0,
+        "required_score": 0.0,
+        "preferred_bonus_score": 0.0,
+        "required_entities": {},
+        "preferred_entities": {},
+        "resume_entities": {},
+        "required_details": [],
+        "preferred_details": []
+      },
+      "job_title_details": {
+        "score": 0.4973159968480468,
+        "relevant_sections_count": 8,
+        "average_similarity": 0.3675942812114954,
+        "matches": [
+          {
+            "source": "project_1",
+            "similarity": 0.2997
+          },
+          {
+            "source": "project_2",
+            "similarity": 0.2154
+          },
+          {
+            "source": "project_3",
+            "similarity": 0.2394
+          },
+          {
+            "source": "experience_1",
+            "similarity": 0.5626
+          },
+          {
+            "source": "skills_languages",
+            "similarity": 0.2962
+          },
+          {
+            "source": "skills_software_development",
+            "similarity": 0.3683
+          },
+          {
+            "source": "education",
+            "similarity": 0.3569
+          },
+          {
+            "source": "github_bio",
+            "similarity": 0.6021
+          }
+        ]
       }
     },
     "skills": {
       "profile_used": "Semantic-Biased",
-      "final_section_score": 52.5,
+      "final_section_score": 77.52,
       "breakdown": {
-        "semantic_similarity": 0.0,
-        "exact_keyword_score": 25.0,
-        "numeric_metrics_score": 100.0,
-        "job_title_score": 0.0
+        "semantic_similarity": 76.09,
+        "exact_keyword_score": 82.61,
+        "numeric_metrics_score": 0.0,
+        "job_title_score": 49.73
       },
       "effective_component_weights": {
-        "semantic": 0.0,
-        "exact_keyword": 0.42000000000000004,
-        "numeric": 0.42000000000000004,
-        "job_title": 0.0
+        "semantic": 0.5,
+        "exact_keyword": 0.4444444444444445,
+        "numeric": 0.0,
+        "job_title": 0.05555555555555556
       },
-      "zero_components": [
-        "semantic",
-        "job_title"
+      "zero_components": [],
+      "non_applicable_components": [
+        "numeric"
       ],
-      "penalty_weight_due_to_zeros": 0.16,
+      "penalty_weight_due_to_zeros": 0.0,
+      "matched_keywords": [
+        "algorithms",
+        "apis",
+        "c",
+        "cloud",
+        "data",
+        "framework",
+        "java",
+        "management",
+        "monitoring",
+        "object",
+        "observability",
+        "oriented",
+        "problem",
+        "programming",
+        "python",
+        "rest",
+        "solving",
+        "structures",
+        "time"
+      ],
       "numeric_details": {
-        "message": "No numeric requirements found in job description section."
+        "score": 0.0,
+        "required_score": 0.0,
+        "preferred_bonus_score": 0.0,
+        "required_entities": {},
+        "preferred_entities": {},
+        "resume_entities": {},
+        "required_details": [],
+        "preferred_details": []
+      },
+      "job_title_details": {
+        "score": 0.4973159968480468,
+        "relevant_sections_count": 8,
+        "average_similarity": 0.3675942812114954,
+        "matches": [
+          {
+            "source": "project_1",
+            "similarity": 0.2997
+          },
+          {
+            "source": "project_2",
+            "similarity": 0.2154
+          },
+          {
+            "source": "project_3",
+            "similarity": 0.2394
+          },
+          {
+            "source": "experience_1",
+            "similarity": 0.5626
+          },
+          {
+            "source": "skills_languages",
+            "similarity": 0.2962
+          },
+          {
+            "source": "skills_software_development",
+            "similarity": 0.3683
+          },
+          {
+            "source": "education",
+            "similarity": 0.3569
+          },
+          {
+            "source": "github_bio",
+            "similarity": 0.6021
+          }
+        ]
       }
     }
   }

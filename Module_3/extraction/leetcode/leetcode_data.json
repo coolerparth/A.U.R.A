@@ -1,16 +1,16 @@
 {
   "username": "NandiniAggarwal14",
   "problems_solved": {
-    "total": 116,
-    "easy": 47,
-    "medium": 60,
+    "total": 120,
+    "easy": 49,
+    "medium": 62,
     "hard": 9
   },
   "skill_tags": [],
   "languages_used": [
     {
       "language": "C++",
-      "problems_solved": 115
+      "problems_solved": 119
     },
     {
       "language": "C",

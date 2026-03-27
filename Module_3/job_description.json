@@ -1,36 +1,46 @@
 {
-  "company": "Amazon",
-  "job_title": "Software Development Engineer I",
-  "location": "Bangalore, India",
-  "employment_type": "Full-time",
-  "experience_required": "0-2 years",
-  "department": "Engineering",
-  "job_description": "Amazon is looking for passionate Software Development Engineers who want to solve large-scale distributed system problems and build customer-centric products used by millions of customers worldwide.",
+  "company": "Microsoft",
+  "job_title": "Software Engineering Intern",
+  "job_number": "200027174",
+  "date_posted": "Feb 17, 2026",
+  "location": "India, Multiple Locations",
+  "employment_type": "Internship",
+  "work_site": "Fully on-site",
+  "travel": "Less than 25%",
+  "profession": "Software Engineering",
+  "role_type": "Individual Contributor",
+  "department": "Software Engineering",
+  "job_description": "Come build community, explore your passions and do your best work at Microsoft with thousands of University interns from every corner of the world. As a Software Engineering Intern, you will work with teammates to solve problems and build innovative software solutions. You will apply your passion for customers and product quality as you provide technical guidance to Technical Program Managers and Product Managers. You will learn and adopt relevant new technologies, tools, methods, and processes to leverage in your solutions. This opportunity will enable you to advance your career by designing, developing, and testing next-generation software that will empower every person and organization on the planet to achieve more.",
   "responsibilities": [
-    "Design and develop scalable backend services and APIs",
-    "Work on distributed systems handling large-scale data",
-    "Collaborate with product managers, designers, and other engineers",
-    "Write clean, efficient, and maintainable code",
-    "Participate in code reviews and system design discussions",
-    "Improve performance, reliability, and security of services"
+    "Apply engineering principles to solve complex problems through sound and creative engineering",
+    "Work with appropriate stakeholders to determine user requirements for a feature",
+    "Quickly learn new engineering methods and incorporate them into work processes",
+    "Seek feedback and apply internal or industry best practices to improve technical solutions",
+    "Demonstrate skill in time management and completing software projects in a cooperative team environment",
+    "Review current developments and proactively seek new knowledge that will improve the availability, reliability, efficiency, observability, and performance of products while also driving consistency in monitoring and operations at scale"
   ],
   "required_qualifications": [
-    "Bachelor’s degree in Computer Science or related field",
-    "Strong programming skills in Java, Python, or C++",
-    "Good understanding of data structures and algorithms",
-    "Knowledge of object-oriented programming and system design",
-    "Familiarity with REST APIs and databases"
+    "Currently pursuing a Bachelor's or Master's degree in Computer Science, Engineering, or related field",
+    "Must have at least 1 semester/term remaining following the completion of the internship",
+    "One year of programming experience in an object-oriented language"
   ],
   "preferred_qualifications": [
-    "Experience with AWS or other cloud platforms",
-    "Knowledge of microservices architecture",
-    "Experience with distributed systems"
+    "Ability to demonstrate an understanding of computer science fundamentals, including data structures and algorithms"
   ],
   "skills": [
+    "Software Development",
+    "REST APIs",
+    "Python",
+    "NET Framework",
+    "NET Core",
+    "Java",
+    "Cloud Infrastructure",
+    "C#",
+    "Object-Oriented Programming",
     "Data Structures and Algorithms",
     "Problem Solving",
-    "Backend Development",
-    "System Design",
-    "Cloud Computing"
+    "Time Management",
+    "Collaboration",
+    "Monitoring and Observability"
   ]
 }

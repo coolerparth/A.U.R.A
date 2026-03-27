@@ -1,0 +1,251 @@
+{
+  "personal_info": {
+    "name": "Nandini Aggarwal",
+    "links": {
+      "github": "https://github.com/NandiniAggarwal14",
+      "linkedin": "https://www.linkedin.com/in/nandini-aggarwal-51b270284/"
+    },
+    "competitive_programming_links": {
+      "leetcode": "https://leetcode.com/u/NandiniAggarwal14/",
+      "codechef": "",
+      "codeforces": ""
+    }
+  },
+  "projects": [
+    {
+      "name": "NotesHive",
+      "technologies": [
+        "Python",
+        "Flask",
+        "MySQL",
+        "REST APIs",
+        "Sentence Transformers",
+        "Object-Oriented Programming"
+      ],
+      "duration": "Nov 2025 - Dec 2025",
+      "mentor": "Dr. Navin Garg",
+      "description": [
+        "Applied software engineering principles to design and build a scalable academic notes management platform focused on performance and reliability.",
+        "Worked with end users including teachers and students to gather requirements and determine feature scope for search, upload, and access workflows.",
+        "Adopted and integrated new AI-based technologies including Sentence Transformer models to deliver semantic search capabilities.",
+        "Implemented role-based access control using object-oriented design patterns, enabling secure REST API operations for multiple user types.",
+        "Sought feedback during development and applied best practices in API design to improve technical solutions and system efficiency.",
+        "Contributed to monitoring platform availability by implementing structured error handling and logging across all REST API endpoints."
+      ]
+    },
+    {
+      "name": "ReadBuddy: AI Video Analyzer",
+      "technologies": [
+        "FastAPI",
+        "Chrome Extension",
+        "REST APIs",
+        "Google Gemini API",
+        "Hugging Face Models",
+        "Python",
+        "Object-Oriented Programming"
+      ],
+      "event": "SAARTHI'25 Hackathon",
+      "duration": "Nov 2025",
+      "description": [
+        "Applied engineering principles creatively to build an accessibility-focused Chrome extension that solves real-world navigation problems for visually impaired users.",
+        "Learned and adopted new engineering methods including multimodal AI models such as InstructBLIP and Pegasus within a fast-paced hackathon environment.",
+        "Collaborated with team members to determine user requirements and translate them into a working technical solution within tight time constraints.",
+        "Developed scalable REST API services using FastAPI following object-oriented software development practices.",
+        "Demonstrated time management by delivering a complete, functional product under hackathon conditions.",
+        "Proactively explored and incorporated the Google Gemini API to improve the observability and performance of video summarization features."
+      ]
+    },
+    {
+      "name": "Smart Emergency Assistance System",
+      "technologies": [
+        "Python",
+        "Flask",
+        "Twilio SMS API",
+        "Folium",
+        "Object-Oriented Programming",
+        "REST APIs"
+      ],
+      "duration": "May 2025",
+      "mentor": "Dr. Prabhdeep Singh",
+      "description": [
+        "Applied engineering principles to solve a complex location-based emergency response problem through sound algorithmic design.",
+        "Worked with stakeholders to define requirements for a real-time emergency assistance system serving multiple user types.",
+        "Implemented distance calculation algorithms using object-oriented programming to identify the nearest emergency service station efficiently.",
+        "Automated SMS alert operations using Twilio API, contributing to system reliability and operational consistency at scale.",
+        "Sought feedback from mentor and applied best practices to improve solution accuracy and system performance.",
+        "Reviewed and adopted new tools including Folium for geospatial visualization to enhance product quality and observability."
+      ]
+    },
+    {
+      "name": "User-Level Firewall Framework",
+      "technologies": [
+        "Python",
+        "Tkinter",
+        "psutil",
+        "Socket Monitoring",
+        "Object-Oriented Programming"
+      ],
+      "duration": "Nov 2025 - Dec 2025",
+      "mentor": "Dr. Santosh Kumar",
+      "description": [
+        "Applied engineering principles to design and implement a user-level firewall framework for monitoring network traffic and improving system efficiency.",
+        "Developed modules for process monitoring, rule-based filtering, and connection tracking using object-oriented software engineering practices.",
+        "Contributed to monitoring and operations by building an event logger and action simulator to track system health and connection activity at scale.",
+        "Proactively reviewed network security methods and incorporated new knowledge about socket monitoring to improve the reliability and observability of the framework.",
+        "Built an interactive GUI with a rule engine to enable stakeholders to manage and configure firewall rules based on operational requirements.",
+        "Collaborated with mentor to seek feedback and iteratively improve the technical solution, applying industry best practices throughout development."
+      ]
+    }
+  ],
+  "skills": {
+    "languages": [
+      "Python",
+      "Java",
+      "C++",
+      "C"
+    ],
+    "backend": [
+      "Flask",
+      "FastAPI",
+      "REST APIs",
+      "Object-Oriented Programming"
+    ],
+    "frontend": [
+      "React.js",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Streamlit"
+    ],
+    "cloud": [
+      "AWS",
+      "Azure",
+      "Render"
+    ],
+    "databases": [
+      "MySQL",
+      "PostgreSQL",
+      "Oracle SQL"
+    ],
+    "machine_learning_data_science": [
+      "Scikit-learn",
+      "Sentence Transformers",
+      "Hugging Face Models",
+      "NumPy",
+      "Pandas"
+    ],
+    "software_development": [
+      "Data Structures and Algorithms",
+      "Software Development",
+      "Problem Solving",
+      "Monitoring and Observability",
+      "Agile Development",
+      "Code Reviews"
+    ],
+    "tools": [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "Jupyter Notebook",
+      "Code::Blocks"
+    ]
+  },
+  "experience": [
+    {
+      "title": "Software Engineering Project Contributor",
+      "type": "Academic Projects",
+      "duration": "2023 - Present",
+      "description": [
+        "Collaborated with academic mentors and peers to deliver multiple software engineering projects from requirements gathering to deployment.",
+        "Demonstrated time management and cooperative team environment skills by completing four full-stack projects concurrently across a single semester.",
+        "Consistently sought feedback from faculty mentors and applied internal best practices to improve technical solutions across all projects.",
+        "Adopted new technologies, tools, and engineering methods in each project cycle including AI models, network monitoring tools, and cloud deployment platforms.",
+        "Contributed to monitoring, operations, and system efficiency by implementing logging, error handling, and performance optimisation across projects.",
+        "Applied engineering principles to solve complex problems creatively — from emergency response algorithms to AI-powered accessibility tools."
+      ]
+    }
+  ],
+  "education": {
+    "degree": "B.Tech in Computer Science (AI & Data Science)",
+    "institution": "Graphic Era (Deemed to be University), Dehradun",
+    "start_year": 2023,
+    "expected_graduation_year": 2027,
+    "current_gpa": 9.54,
+    "scale": 10.0
+  },
+  "competitive_programming": {
+    "leetcode": {
+      "username": "NandiniAggarwal14",
+      "problems_solved": {
+        "total": 116,
+        "easy": 47,
+        "medium": 60,
+        "hard": 9
+      },
+      "skill_tags": [
+        "Data Structures",
+        "Algorithms",
+        "Problem Solving",
+        "Object-Oriented Programming"
+      ],
+      "languages_used": [
+        {
+          "language": "C++",
+          "problems_solved": 115
+        },
+        {
+          "language": "C",
+          "problems_solved": 4
+        }
+      ],
+      "contest": {
+        "attended": 0,
+        "rating": 0,
+        "global_ranking": 0,
+        "top_percentage": 0
+      }
+    },
+    "codechef": {},
+    "codeforces": {}
+  },
+  "github": {
+    "profile_info": {
+      "username": "NandiniAggarwal14",
+      "name": "Nandini Aggarwal",
+      "bio": "Software engineering student passionate about building reliable, scalable software solutions. Experienced in Python, REST APIs, and machine learning integration. Strong focus on problem solving, monitoring, and delivering impactful products.",
+      "public_repos": 18,
+      "followers": 2,
+      "profile_url": "https://github.com/NandiniAggarwal14"
+    },
+    "tech_stack": {
+      "languages": {
+        "Python": 10524911,
+        "Jupyter Notebook": 3301903,
+        "C++": 88364,
+        "HTML": 66503,
+        "C": 50826,
+        "CSS": 12654,
+        "JavaScript": 7896
+      },
+      "languages_ranked": [
+        "Python",
+        "Jupyter Notebook",
+        "C++",
+        "HTML",
+        "C",
+        "CSS",
+        "JavaScript"
+      ],
+      "topics_and_tools": [
+        "REST APIs",
+        "Flask",
+        "FastAPI",
+        "Machine Learning",
+        "Software Development",
+        "Monitoring",
+        "Object-Oriented Programming",
+        "Data Structures and Algorithms"
+      ]
+    }
+  }
+}

@@ -2,3 +2,18 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Generated outputs
+resume.json
+ats_score.json
+*.log
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store

@@ -1,4 +1,12 @@
 {
+  "education": {
+    "degree": "B.Tech in Computer Science (AI & Data Science)",
+    "institution": "Graphic Era (Deemed to be University), Dehradun",
+    "start_year": 2023,
+    "expected_graduation_year": 2027,
+    "current_gpa": 9.54,
+    "scale": 10.0
+  },
   "projects": [
     {
       "name": "NotesHive",

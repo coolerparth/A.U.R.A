@@ -6,7 +6,7 @@ def main():
     Running this script once will save the model to your local cache,
     preventing a download every time the main scoring script runs.
     """
-    model_name = 'all-MiniLM-L6-v2'
+    model_name = 'all-mpnet-base-v2'
     print(f"Downloading and caching model: {model_name}")
     
     try:
